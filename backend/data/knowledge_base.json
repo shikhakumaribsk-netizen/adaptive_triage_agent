@@ -1,0 +1,168 @@
+{
+  "version": "KB-v2.0.1",
+  "last_updated": "2024-01-01",
+  "description": "Clinical triage knowledge base for RAG retrieval — simulated sandbox only",
+  "protocols": [
+    {
+      "id": "ESI-1",
+      "source": "Emergency Severity Index v4 §Level 1",
+      "category": "triage_level",
+      "tags": ["immediate", "resuscitation", "life_threat"],
+      "text": "ESI Level 1 patients require immediate life-saving intervention. Examples include cardiac arrest, respiratory arrest, severe respiratory distress, SpO2 below 90%, unresponsive patients, active seizures, and massive haemorrhage. These patients bypass triage waiting and go directly to the resuscitation bay."
+    },
+    {
+      "id": "ESI-2",
+      "source": "Emergency Severity Index v4 §Level 2",
+      "category": "triage_level",
+      "tags": ["high_risk", "confused", "severe_pain", "chest_pain"],
+      "text": "ESI Level 2 patients are high risk and should not wait. This includes patients with chest pain consistent with acute coronary syndrome, signs of stroke within treatment window, severe respiratory distress, altered mental status, high-risk mechanisms of injury, active suicidal ideation with plan, and any situation the triage nurse deems high risk. Immediate physician notification is required."
+    },
+    {
+      "id": "ESI-3",
+      "source": "Emergency Severity Index v4 §Level 3",
+      "category": "triage_level",
+      "tags": ["urgent", "stable", "multiple_resources"],
+      "text": "ESI Level 3 patients are stable but require multiple resources such as lab tests, imaging, IV fluids, or specialist consultation. Examples include moderate abdominal pain, urinary symptoms with high fever, and injuries requiring X-ray. These patients can wait but need monitoring for deterioration."
+    },
+    {
+      "id": "NEWS2-RR",
+      "source": "NEWS2 §Respiratory Rate",
+      "category": "vital_signs",
+      "tags": ["respiratory_rate", "deterioration", "news2"],
+      "text": "Respiratory rate is the earliest and most sensitive clinical indicator of deterioration. NEWS2 scoring: respiratory rate of 25 per minute or above scores 3 points; 21 to 24 scores 2 points; 12 to 20 scores 0 points; 9 to 11 scores 1 point; 8 or below scores 3 points. A rate above 25 mandates urgent review. Tachypnoea is often the first sign of sepsis, pulmonary embolism, and metabolic acidosis."
+    },
+    {
+      "id": "NEWS2-SPO2",
+      "source": "NEWS2 §SpO2 Scale 1",
+      "category": "vital_signs",
+      "tags": ["spo2", "oxygen_saturation", "hypoxia", "news2"],
+      "text": "Oxygen saturation scoring under NEWS2 Scale 1: SpO2 of 96 percent or above scores 0; 94 to 95 scores 1; 92 to 93 scores 2; 91 or below scores 3. SpO2 below 90 percent represents severe hypoxaemia and mandates immediate oxygen therapy and emergency assessment. SpO2 below 85 percent is a hard trigger for resuscitation response."
+    },
+    {
+      "id": "NEWS2-BP",
+      "source": "NEWS2 §Systolic Blood Pressure",
+      "category": "vital_signs",
+      "tags": ["blood_pressure", "hypotension", "shock", "news2"],
+      "text": "Systolic blood pressure NEWS2 scoring: 220 or above scores 3; 111 to 219 scores 0; 101 to 110 scores 1; 91 to 100 scores 2; 90 or below scores 3. Systolic BP below 90 mmHg indicates shock and requires immediate fluid resuscitation and senior review. Hypotension in the context of infection indicates septic shock with high mortality if not treated within one hour."
+    },
+    {
+      "id": "NEWS2-HR",
+      "source": "NEWS2 §Heart Rate",
+      "category": "vital_signs",
+      "tags": ["heart_rate", "tachycardia", "bradycardia", "news2"],
+      "text": "Heart rate NEWS2 scoring: 131 or above scores 3; 111 to 130 scores 2; 91 to 110 scores 1; 51 to 90 scores 0; 41 to 50 scores 1; 40 or below scores 3. Extreme tachycardia above 130 bpm suggests haemodynamic compromise, pain, sepsis, or arrhythmia. Bradycardia below 40 bpm may indicate heart block or vasovagal event requiring urgent ECG."
+    },
+    {
+      "id": "NEWS2-TEMP",
+      "source": "NEWS2 §Temperature",
+      "category": "vital_signs",
+      "tags": ["temperature", "fever", "hypothermia", "sepsis", "news2"],
+      "text": "Temperature NEWS2 scoring: 39.1 or above scores 2; 38.1 to 39.0 scores 1; 36.1 to 38.0 scores 0; 35.1 to 36.0 scores 1; 35.0 or below scores 3. Hypothermia below 35 degrees is associated with severe sepsis, hypothyroidism, and environmental exposure. High fever above 39.5 with altered mental status raises concern for bacterial meningitis or encephalitis."
+    },
+    {
+      "id": "NEWS2-AGG",
+      "source": "NEWS2 §Aggregate Score Response",
+      "category": "scoring",
+      "tags": ["news2", "aggregate", "escalation", "response"],
+      "text": "An aggregate NEWS2 score of 7 or more triggers an emergency response with critical care team involvement. A score of 5 to 6 is a key threshold for urgent review by a clinical team with competencies to assess and treat patients who may be in a life-threatening condition. A score of 1 to 4 triggers an hourly monitoring increase. Any single parameter scoring 3 triggers an urgent review."
+    },
+    {
+      "id": "FAST",
+      "source": "FAST Stroke Recognition Pathway",
+      "category": "stroke",
+      "tags": ["stroke", "facial_droop", "arm_weakness", "speech", "FAST", "time_critical"],
+      "text": "FAST assessment: Face drooping on one side, Arm weakness when both arms raised, Speech slurred or confused, Time to call emergency services. Any positive FAST sign indicates possible acute stroke. Establish the time the patient was last known to be well. The thrombolysis window is 4.5 hours from onset and the thrombectomy window extends to 24 hours in selected patients. Every minute without treatment equates to 1.9 million neurons lost."
+    },
+    {
+      "id": "OTTAWA-SAH",
+      "source": "Ottawa Subarachnoid Haemorrhage Rule",
+      "category": "neurology",
+      "tags": ["headache", "subarachnoid", "SAH", "thunderclap", "ottawa"],
+      "text": "The Ottawa SAH Rule applies to alert patients aged 15 or older with non-traumatic headache reaching maximum intensity within one hour. Investigate for subarachnoid haemorrhage if any of: age 40 or older, neck pain or stiffness, witnessed loss of consciousness, onset during exertion, thunderclap descriptor, or limited neck flexion on examination. Sensitivity approaches 100 percent. CT head followed by lumbar puncture if CT negative within 6 hours."
+    },
+    {
+      "id": "SEPSIS-6",
+      "source": "UK Sepsis Trust — Sepsis Six Bundle",
+      "category": "sepsis",
+      "tags": ["sepsis", "infection", "organ_failure", "hypotension", "lactate"],
+      "text": "Suspect sepsis in any patient with known or suspected infection plus evidence of organ dysfunction: altered mental status, respiratory rate above 22, systolic BP below 100 mmHg, SpO2 below 94 percent, heart rate above 90, temperature above 38.3 or below 36 degrees, or elevated lactate. Septic shock is defined as sepsis with vasopressor requirement to maintain MAP above 65 mmHg and lactate above 2 mmol/L. Give oxygen, take blood cultures, measure lactate, give IV antibiotics within one hour, and give IV fluid resuscitation. Mortality increases by 7 percent for every hour antibiotics are delayed."
+    },
+    {
+      "id": "WELLS-PE",
+      "source": "Wells Criteria for Pulmonary Embolism",
+      "category": "pulmonary_embolism",
+      "tags": ["PE", "pulmonary_embolism", "DVT", "calf", "wells", "immobility"],
+      "text": "Wells PE score: clinical signs of DVT scores 3 points; alternative diagnosis less likely than PE scores 3; heart rate above 100 scores 1.5; immobilisation or surgery within 4 weeks scores 1.5; previous DVT or PE scores 1.5; haemoptysis scores 1; malignancy scores 1. Score above 6 is high probability; 2 to 6 is moderate; below 2 is low. Sudden onset dyspnoea with pleuritic chest pain, tachycardia, and calf swelling in a post-operative or recently immobilised patient should prompt immediate CT pulmonary angiography."
+    },
+    {
+      "id": "ACS-SCREEN",
+      "source": "NICE NG185 — Chest Pain Acute Coronary Syndrome",
+      "category": "cardiac",
+      "tags": ["chest_pain", "ACS", "STEMI", "NSTEMI", "radiation", "diaphoresis"],
+      "text": "Acute coronary syndrome should be suspected in any patient with chest pain or pressure, especially if radiating to the left arm, jaw, or back, associated with diaphoresis, nausea, or dyspnoea, or occurring at rest or with minimal exertion. Risk is higher in patients with diabetes, hypertension, smoking history, prior cardiac events, or a family history of ischaemic heart disease. Diabetic patients and elderly women may present atypically without chest pain. Immediate 12-lead ECG within 10 minutes of presentation is mandatory. STEMI is a time-critical emergency requiring reperfusion within 90 minutes."
+    },
+    {
+      "id": "PAEDS-TRIAGE",
+      "source": "Paediatric Triage Considerations — APLS",
+      "category": "paediatrics",
+      "tags": ["paediatric", "child", "infant", "age", "normal_values", "compensation"],
+      "text": "Children compensate haemodynamically for much longer than adults and then deteriorate rapidly and unpredictably. Normal heart rate ranges by age: neonates 110 to 160 bpm; infants 100 to 160 bpm; toddlers 90 to 150 bpm; school age 70 to 120 bpm; adolescents 60 to 100 bpm. Normal respiratory rates are significantly higher than adults. Reduced feeding, fewer wet nappies, lethargy, and prolonged capillary refill above 2 seconds are warning signs in infants. Any child with a single vital sign in the danger zone requires immediate senior review."
+    },
+    {
+      "id": "GERI-TRIAGE",
+      "source": "Geriatric Emergency Medicine Principles",
+      "category": "geriatrics",
+      "tags": ["elderly", "geriatric", "atypical", "diabetes", "silent_MI", "masked_sepsis"],
+      "text": "Older adults frequently present atypically. Myocardial infarction may occur without chest pain in up to 40 percent of patients over 65, especially those with diabetes. Sepsis may occur without fever in immunocompromised and elderly patients. Falls may represent an underlying serious diagnosis such as arrhythmia, TIA, or hypoglycaemia. A lower threshold for escalation and investigation is recommended. Polypharmacy may mask tachycardia due to beta-blocker use. Confusion or functional decline may be the only presenting symptom of serious pathology."
+    },
+    {
+      "id": "AVPU",
+      "source": "AVPU Scale — ABCDE Assessment §Disability",
+      "category": "neurological",
+      "tags": ["consciousness", "AVPU", "GCS", "altered_mental", "neurological"],
+      "text": "The AVPU scale assesses level of consciousness: Alert means the patient is awake and responsive; Voice means the patient responds to verbal stimulus; Pain means the patient responds only to painful stimulus; Unresponsive means the patient does not respond. Any level below Alert corresponds to a GCS of approximately 12 or below and warrants urgent neurological assessment. An AVPU of Pain or Unresponsive is a medical emergency requiring immediate airway protection and resuscitation team activation."
+    },
+    {
+      "id": "MENINGITIS",
+      "source": "Bacterial Meningitis and Meningococcal Septicaemia — NICE CG102",
+      "category": "infection",
+      "tags": ["meningitis", "neck_stiffness", "photophobia", "fever", "rash", "petechiae"],
+      "text": "Suspect bacterial meningitis or meningococcal septicaemia in patients with fever and any of: neck stiffness, photophobia, non-blanching petechial or purpuric rash, altered consciousness, severe headache, or signs of sepsis. The classic triad of fever, neck stiffness, and altered consciousness is present in less than half of cases. Any non-blanching rash with fever is a medical emergency. IV benzylpenicillin should be given immediately if meningococcal disease is suspected and should not be delayed for lumbar puncture."
+    },
+    {
+      "id": "TRIAGE-SAFETY",
+      "source": "Triage Safety Principle — Under-triage vs Over-triage",
+      "category": "safety",
+      "tags": ["safety", "under_triage", "over_triage", "uncertain", "escalate"],
+      "text": "Where triage acuity is uncertain, the higher acuity category should be assigned. Under-triage carries a significantly greater patient safety risk than over-triage. Studies show under-triage rates above 5 percent are associated with increased mortality. When a patient's condition cannot be confidently categorised from available information alone, clinical assessment by a qualified clinician must be obtained before any routing decision is finalised. Algorithmic triage tools are decision support only and cannot replace clinical judgement."
+    },
+    {
+      "id": "AORTIC-DISSECTION",
+      "source": "Aortic Dissection Recognition",
+      "category": "cardiac",
+      "tags": ["chest_pain", "back_pain", "aortic_dissection", "tearing", "radiation"],
+      "text": "Aortic dissection should be considered in patients with severe tearing or ripping chest or back pain, especially if radiating to the back between the shoulder blades, in patients with hypertension, Marfan syndrome, or bicuspid aortic valve. Pain is typically sudden onset and maximal at onset, distinguishing it from ACS where pain may build gradually. BP differential between arms, pulse deficits, and new aortic regurgitation murmur are important examination findings. This is a surgical emergency with high mortality from delay."
+    },
+    {
+      "id": "DVT-RECOGNITION",
+      "source": "Deep Vein Thrombosis Recognition and Wells Score",
+      "category": "vascular",
+      "tags": ["DVT", "calf_swelling", "leg", "immobility", "wells", "VTE"],
+      "text": "Suspect deep vein thrombosis in patients with unilateral calf or leg swelling, redness, warmth, or pain, especially following immobility, surgery, air travel over 4 hours, or in patients with active malignancy. The Wells DVT score quantifies pre-test probability. A positive Wells score with D-dimer elevation warrants venous duplex ultrasound. DVT is dangerous primarily due to risk of pulmonary embolism, which can be life-threatening."
+    },
+    {
+      "id": "OBSTETRIC-EMERGENCY",
+      "source": "Obstetric Emergency Triage Principles",
+      "category": "obstetrics",
+      "tags": ["pregnancy", "obstetric", "eclampsia", "ectopic", "haemorrhage"],
+      "text": "Pregnant patients require modified triage assessment. Always ask about pregnancy in women of childbearing age. Ectopic pregnancy presents with lower abdominal pain and should be considered in any woman with amenorrhoea and abdominal pain. Pre-eclampsia presents with hypertension, headache, visual disturbance, and epigastric pain in late pregnancy. Eclampsia with seizures is a life-threatening emergency. Antepartum haemorrhage with haemodynamic compromise requires immediate obstetric intervention."
+    },
+    {
+      "id": "ANAPHYLAXIS",
+      "source": "Anaphylaxis Recognition — Resuscitation Council UK",
+      "category": "allergy",
+      "tags": ["anaphylaxis", "allergy", "urticaria", "angioedema", "throat_swelling"],
+      "text": "Anaphylaxis is a severe, life-threatening hypersensitivity reaction. Diagnose when any of the following occur after exposure to a trigger: sudden onset skin or mucosal changes with airway compromise or hypotension; or two of urticaria, respiratory compromise, and reduced BP after exposure to a likely trigger. Adrenaline 0.5mg IM is the first-line treatment. Airway compromise can progress to complete obstruction within minutes. All anaphylaxis cases are ESI Level 1 or 2 and require immediate physician assessment."
+    }
+  ]
+}
